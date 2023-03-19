@@ -7,26 +7,36 @@ int main(){
 	char input[100];
 	fgets(input, sizeof(input), stdin);
 	
+	
+	const int stringsize = strlen(input);
+	char stri[stringsize];
+	
+	strcpy(stri, input);
+	
+	
 	char* token = strtok(input, " ");
+	
+	
+	
 	int count =0;
 	
 	while(token != NULL){
 		count++;
 		token = strtok(NULL, " ");
 	}
-	printf("count is %d\n", count);
 	
 	int* numbers = calloc(count, sizeof(int));
 	
-	token = strtok(input, " ");
+	
+	token = strtok(stri, " ");
+	int i =0;
 	while(token != NULL){
-		printf("%s", token);
+		numbers[i] = atoi(token);
 		token = strtok(NULL, " ");
+		++i;
 	}
 	
-	for(int i =0; i < count; i++){
-		//printf("%d", numbers[i]);
-		}
+
 	
 	free(numbers);
 	

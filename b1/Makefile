@@ -1,8 +1,12 @@
 CC=gcc
 CFLAGS=-g -std=c11 -Wall -Wextra -pedantic -O0
-CPRGS=quadriere.bin wurzele.bin
+CPRGS=quadriere.bin wurzele.bin sortzahlen.bin
+
 
 all: $(CPRGS)
+
+sortzahlen.bin: sortzahlen.c
+	$(CC) $(CFLAGS) $^ -o $@
 
 wurzele.bin : wurzele.c lib.o
 	$(CC) $(CFLAGS) $^ -o $@
