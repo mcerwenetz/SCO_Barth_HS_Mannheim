@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 int main(){
 
@@ -13,7 +14,22 @@ int main(){
 		count++;
 		token = strtok(NULL, " ");
 	}
-	printf("%d", count);
+	printf("count is %d\n", count);
+	
+	int* numbers = calloc(count, sizeof(int));
+	
+	token = strtok(input, " ");
+	while(token != NULL){
+		printf("%s", token);
+		token = strtok(NULL, " ");
+	}
+	
+	for(int i =0; i < count; i++){
+		//printf("%d", numbers[i]);
+		}
+	
+	free(numbers);
+	
 	
 return 0;
 }
