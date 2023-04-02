@@ -11,16 +11,15 @@ sortzahlen.bin: sortzahlen.c
 wurzele.bin : wurzele.c lib.o
 	$(CC) $(CFLAGS) $^ -o $@
 
-lib.o : lib.c lib.h
-	$(CC) -c $(CFLAGS) $< -o $@
 
 quadriere.bin: quadriere.o quad.o
 	$(CC) $(CFLAGS) $^ -o $@
-
-quad.o: quad.c quad.h
-	$(CC) -c $(CFLAGS) $< -o $@
 	
-quadriere.o: quadriere.c quad.h
+cmdq.bin: cmdq.o queue.o
+	$(CC) $(CFLAGS) $^ -o $@
+
+
+%.o : %c
 	$(CC) -c $(CFLAGS) $< -o $@
 
 .SUFFIXES: .o .c .h

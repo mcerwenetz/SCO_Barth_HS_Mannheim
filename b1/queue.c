@@ -1,17 +1,7 @@
 #include <stdlib.h> 
 #include <stdio.h>
+#include "queue.h"
 
-struct Node{
-	void* data;
-	struct Node* next;
-	};
-
-struct Queue{
-	
-	struct Node* head;
-	struct Node* tail;
-	int size;
-};
 
 void enter(void* data, struct Queue* queue){
 	struct Node* new_node = (struct Node*) malloc(sizeof(struct Node*));
@@ -46,19 +36,5 @@ void* leave(struct Queue* queue){
 
 int isEmpty(struct Queue queue){
 	return queue.size == 0;
-}
-
-
-int main(){
-		struct Queue queue;
-		int to_enter = 10;
-		int to_enter_second = 20;
-		void* enter_void = &to_enter;
-		enter(enter_void, &queue);
-		enter(&to_enter_second, &queue);
-		void* data = leave(&queue);
-		int data_in_int = *(int*) data;
-		printf("%d\n", data_in_int);
-		printf("%d\n", *(int*)  leave(&queue));
 }
 
