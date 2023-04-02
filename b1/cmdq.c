@@ -4,7 +4,7 @@
 #include "queue.h"
 
 int main(){
-	char input[100];
+	char input[10000];
 	fgets(input, sizeof(input), stdin);
 	const int stringsize = strlen(input);
 	char stri[stringsize];
@@ -27,16 +27,16 @@ int main(){
 	token = strtok(stri, " ");
 	int i =0;
 	while(token != NULL){
-		input_strings[i] = strdup(token);
+		char *dup = malloc(strlen(token) + 1);
+		strcpy(dup, token);
+		input_strings[i] = dup;
 		i++;
 		token = strtok(NULL, " ");
 	}
 
 
-	for (int i=0; i <= counter; i++){
-		printf("%s", input_strings[i]);
+	for (int i=0; i < counter; i++){
+		fprintf(stdout,"%s ", input_strings[i]);
+		free(input_strings[i]);
 	}
-	
-	free(input_strings);
-	
 }
