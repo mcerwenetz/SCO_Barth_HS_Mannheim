@@ -18,5 +18,5 @@ TEST(misc, len2){
 		int NUM2  = 2;
 		enter(&NUM, &queue);
 		enter(&NUM2, &queue);
-		ASSERT_EQ(queue.size, 1);
+		ASSERT_EQ(queue.size, 2);
 }
