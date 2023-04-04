@@ -14,6 +14,7 @@ struct Queue{
 	int size;
 };
 
+void enter(void* data, struct Queue* queue);
 
 void* leave(struct Queue* queue);
 
