@@ -9,16 +9,14 @@ void enter(void* data, struct Queue* queue){
 	new_node->next = NULL;
 	//if queue is empty, initialize
 	if(queue->tail == NULL && queue->head == NULL){
-			queue->size=0;
+			queue->size=1;
+			queue->tail= new_node;
+			queue->head = queue->tail;
+			return;
 	}
-	queue->size++;
+	queue->tail->next = new_node;
 	queue->tail=new_node;
-	//first and only node means head is the tail
-	if(queue->size == 1){
-		queue->head = queue->tail;
-	}else{
-		queue->head->next = new_node;
-	}
+	queue->size++;
 }
 
 void* leave(struct Queue* queue){

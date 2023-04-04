@@ -41,9 +41,11 @@ int main(){
 	char* maxstring;
 	for (int i=0; i < counter; i++){
 		char* data = leave(&queue);
-		fprintf(stdout,"%s ", data);
 		int string_size = strlen(data);
 		if(string_size > max_string_len){
+				if (maxstring != NULL){
+						free(maxstring);
+				}
 				max_string_len=string_size;
 				maxstring = (char*) malloc(string_size);
 				strcpy(maxstring, data);
@@ -52,6 +54,6 @@ int main(){
 			free(data);
 		}
 	}
-	printf("%s : %d", maxstring, max_string_len);
+	printf("%s : %d\n", maxstring, max_string_len);
 	free(maxstring);
 }
