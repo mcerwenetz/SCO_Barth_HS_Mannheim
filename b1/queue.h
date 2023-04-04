@@ -9,8 +9,8 @@ struct Node{
 
 struct Queue{
 	
-	struct Node* head;
-	struct Node* tail;
+	struct Node* head = NULL;
+	struct Node* tail = NULL;
 	int size;
 };
 
